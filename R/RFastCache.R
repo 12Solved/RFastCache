@@ -1,3 +1,9 @@
+#' RFastCache
+#'
+#' Cache class for R with set, get, has, delete and clear functions.
+
+
+
 # Liblary shoud be defined somwere else?
 
 library(R6)
