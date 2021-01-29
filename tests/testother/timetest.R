@@ -4,6 +4,7 @@ ttl_path = file.path(dir_path, "ttl")
 
 
 add_1_to_n = function(n){
+  mycache = RFastCache$new(dir=dir_path)
   for (i in c(1:n)) {
     mycache$set(key = toString(x = i), value = i, ttl = 10000)
   }
@@ -11,29 +12,35 @@ add_1_to_n = function(n){
 
 test1 = function(n){
   mycache = RFastCache$new(dir=dir_path)
+
   time = Sys.time()
-  print(Sys.time())
   add_1_to_n(n)
-  print(Sys.time())
   time = Sys.time() - time
   cat("Add", n, "in:", time, "s.\n")
+  flush.console()
 
   time = Sys.time()
   print(mycache$get(key = toString(x = 1)))
   time = Sys.time() - time
   cat("Get first in:", time, "s.\n")
+  flush.console()
 
   time = Sys.time()
   print(mycache$get(key = toString(x = floor(n/2))))
   time = Sys.time() - time
   cat("Get middle in:", time, "s.\n")
+  flush.console()
 
   time = Sys.time()
   print(mycache$get(key = toString(x = n)))
   time = Sys.time() - time
   cat("Get last in:", time, "s.\n")
+  flush.console()
 
+  unlink(x = dir_path, recursive = TRUE)
 }
+
+
 
 
 test2 = function(){
