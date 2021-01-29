@@ -1,0 +1,113 @@
+---
+title: "Untitled"
+author: "TEST"
+date: "July 10, 2014"
+output: html_document
+---
+
+# Say Hello to markdown
+
+Markdown is an **easy to use** format for writing reports. It resembles what you naturally write every time you compose an email. In fact, you may have already used markdown *without realizing it*. These websites all rely on markdown formatting
+
+* [Github](www.github.com)
+* [StackOverflow](www.stackoverflow.com)
+* [Reddit](www.reddit.com)
+
+Here's some code
+```{r}
+dim(iris)
+```
+
+Two plus two equals `r 2 + 2`.
+
+
+```{r}
+test = c(1,2,3)
+```
+
+```{r}
+test
+```
+
+# Performance test (add get test)
+
+## Many objects
+```{r}
+library(RFastCache)
+
+dir_path = "tmp/test"
+count = 1
+times = 2
+
+for (i in c(1:times)){
+  mycache = RFastCache$new(dir=dir_path)
+  
+  time = Sys.time()
+  for (j in c(1:count)) {
+    mycache$set(key = toString(x = j), value = j, ttl = 10000)
+  }
+  
+  time = Sys.time() - time
+  cat("Add", count, "in:", time, "s.\n")
+  
+  time = Sys.time()
+  print(mycache$get(key = toString(x = 1)))
+  time = Sys.time() - time
+  cat("Get first in:", time, "s.\n")
+
+  time = Sys.time()
+  print(mycache$get(key = toString(x = floor(count/2))))
+  time = Sys.time() - time
+  cat("Get middle in:", time, "s.\n")
+
+  time = Sys.time()
+  print(mycache$get(key = toString(x = count)))
+  time = Sys.time() - time
+  cat("Get last in:", time, "s.\n")
+  
+  unlink(x = dir_path, recursive = TRUE)
+  count = count * 10
+}
+```
+
+
+
+
+
+## Big objects
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
