@@ -1,15 +1,20 @@
 Package: RFastCache
-Title: What the Package Does (One Line, Title Case)
+Title: An easy persistent cache to disk.
 Version: 0.0.0.9000
 Authors@R: 
-    person(given = "First",
-           family = "Last",
+    person(given = "Gintautas",
+           family = "Šedys",
            role = c("aut", "cre"),
-           email = "first.last@example.com",
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
-License: `use_mit_license()`, `use_gpl3_license()` or friends to
-    pick a license
+           email = "gyntautas.sedys.s12@gmail.com",
+           ),
+    person(given = "Henryk",
+           family = "Gerlach",
+           role = c("aut", "cre"),
+           email = "hello@12solved.com",
+           comment = c(ORCID = "0000-0001-7106-4771"),),
+Description: An easy persistent cache to disk storing 
+    R objects with a time to live.
+License: MIT
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
